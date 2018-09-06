@@ -1,5 +1,16 @@
 <h1>列表页面</h1>
+
 <div>
+    <div class="comb-search">
+        {% for row_obj in  rows %}
+            <div class="row">
+                {% for row in row_obj %}
+                    {{ row|safe }}
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+    </div>
     <div style="float: right;">
         <form method="GET" class="form-inline">
             <div class="form-group">
@@ -9,6 +20,9 @@
                 </button>
             </div>
         </form>
+    </div>
+    <div style="margin: 5px 0;">
+        {{ add_btn }}
     </div>
     <form action="" method="post" class="form-inline">
         {% csrf_token %}
@@ -48,5 +62,4 @@
         </ul>
     </nav>
 </div>
-
 
